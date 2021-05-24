@@ -99,16 +99,16 @@ public:
       drawRGBBitmap(int16_t x, int16_t y, uint16_t *bitmap, uint8_t *mask,
                     int16_t w, int16_t h),
       drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color,
-               uint16_t bg, uint8_t size),
+               uint16_t bg, float size),
       drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color,
-               uint16_t bg, uint8_t size_x, uint8_t size_y),
+               uint16_t bg, float size_x, float size_y),
       getTextBounds(const char *string, int16_t x, int16_t y, int16_t *x1,
                     int16_t *y1, uint16_t *w, uint16_t *h),
       getTextBounds(const __FlashStringHelper *s, int16_t x, int16_t y,
                     int16_t *x1, int16_t *y1, uint16_t *w, uint16_t *h),
       getTextBounds(const String &str, int16_t x, int16_t y, int16_t *x1,
                     int16_t *y1, uint16_t *w, uint16_t *h),
-      setTextSize(uint8_t s), setTextSize(uint8_t sx, uint8_t sy),
+      setTextSize(float s), setTextSize(float sx, float sy),
       setFont(const GFXfont *f = NULL);
 
   /**********************************************************************/
@@ -230,9 +230,9 @@ protected:
       cursor_y;       ///< y location to start print()ing text
   uint16_t textcolor, ///< 16-bit background color for print()
       textbgcolor;    ///< 16-bit text color for print()
-  uint8_t textsize_x, ///< Desired magnification in X-axis of text to print()
-      textsize_y,     ///< Desired magnification in Y-axis of text to print()
-      rotation;       ///< Display rotation (0 thru 3)
+  float textsize_x, ///< Desired magnification in X-axis of text to print()
+      textsize_y;     ///< Desired magnification in Y-axis of text to print()
+  uint8_t rotation;       ///< Display rotation (0 thru 3)
   boolean wrap,       ///< If set, 'wrap' text at right edge of display
       _cp437;         ///< If set, use correct CP437 charset (default is off)
   GFXfont *gfxFont;   ///< Pointer to special font
